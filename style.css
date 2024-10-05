@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --popup-bg: #f7f7f7;           /* Light gray for popup background */
+  --border-color: #bdc3c7;       /* Light border color */
+  --button-bg: #27ae60;          /* Primary green for button background */
+  --button-hover-bg: #1e8449;    /* Darker green for button hover */
+  --button-text-color: #FFFFFF;  /* White for button text */
+  --header-text-color: #2c3e50;  /* Dark gray for header text */
+  --body-text-color: #7f8c8d;    /* Medium gray for body text */
+  --overlay-bg: rgba(0, 0, 0, 0.25);  /* Modal overlay background color */
+  --box-shadow: rgba(44, 62, 80, 0.15); /* Soft shadow color */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--popup-bg);
+}
+
+.show-popup {
+  padding: 18px 40px;
+  background: var(--button-bg);
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px var(--box-shadow);
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--button-text-color);
+  font-weight: 500;
+}
+
+.popup-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.popup-container.active {
+  opacity: 1;
+  pointer-events: auto;
+  transition: 0.4s ease;
+}
+
+.popup-container .popup-box {
+  width: 500px;
+  background: var(--popup-bg);
+  border-radius: 6px;
+  box-shadow: 0 0 10px var(--box-shadow);
+  padding: 30px;
+  transform: scale(0);
+}
+
+.popup-container.active .popup-box {
+  transform: scale(1);
+  transition: 0.4s ease;
+  transition-delay: 0.25s;
+}
+
+.popup-box h1 {
+  color: var(--header-text-color);
+  line-height: 1;
+}
+
+.popup-box p {
+  color: var(--body-text-color);
+  margin: 12px 0 20px;
+}
+
+.popup-box .close-btn {
+  width: 100%;
+  height: 45px;
+  background: var(--button-bg);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 10px var(--box-shadow);
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--button-text-color);
+  font-weight: 500;
+}
+
+.popup-box .close-btn:hover {
+  background: var(--button-hover-bg);
+}
